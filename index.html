@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoInvoice - Gerador de Faturas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Gerador de Faturas</h1>
+
+        <form id="invoice-form" class="bg-white p-4 rounded shadow-sm">
+            <div class="form-group">
+                <label for="client-name">Nome do Cliente:</label>
+                <input type="text" id="client-name" class="form-control" placeholder="Digite o nome do cliente" required>
+            </div>
+
+            <div class="form-group">
+                <label for="client-email">E-mail do Cliente:</label>
+                <input type="email" id="client-email" class="form-control" placeholder="Digite o e-mail do cliente" required>
+            </div>
+
+            <div class="form-group">
+                <label for="service-description">Descrição do Serviço/Produto:</label>
+                <textarea id="service-description" class="form-control" placeholder="Descrição do serviço ou produto" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="invoice-amount">Valor da Fatura:</label>
+                <input type="number" id="invoice-amount" class="form-control" placeholder="Digite o valor da fatura" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="invoice-date">Data de Emissão:</label>
+                <input type="date" id="invoice-date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="due-date">Data de Vencimento:</label>
+                <input type="date" id="due-date" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Gerar Fatura</button>
+        </form>
+
+        <div id="invoice-output" class="bg-white p-4 rounded shadow-sm mt-4" style="display:none;">
+            <h2>Fatura Gerada</h2>
+            <p><strong>Cliente:</strong> <span id="client-name-output"></span></p>
+            <p><strong>E-mail:</strong> <span id="client-email-output"></span></p>
+            <p><strong>Descrição:</strong> <span id="service-description-output"></span></p>
+            <p><strong>Valor:</strong> R$ <span id="invoice-amount-output"></span></p>
+            <p><strong>Data de Emissão:</strong> <span id="invoice-date-output"></span></p>
+            <p><strong>Data de Vencimento:</strong> <span id="due-date-output"></span></p>
+            <button id="download-btn" class="btn btn-success">Baixar PDF</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
